@@ -24,3 +24,5 @@ yarn-error.log*
 
 notes_docx
 ~$notes.docx
+
+/src/common/apis
