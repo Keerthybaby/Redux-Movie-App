@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAsyncMovieOrShowDetail,
   getSelectedMovieOrShow,
+  removeSelectedMovieOrShow,
 } from "../../features/movies/movieSlice";
 import "./MovieDetail.scss";
 
@@ -14,10 +15,13 @@ const MovieDetail = () => {
   console.log(data);
   useEffect(() => {
     dispatch(fetchAsyncMovieOrShowDetail(imdbID));
+    return () => {
+      dispatch(removeSelectedMovieOrShow());
+    };
   }, [dispatch, imdbID]);
 
   if (!data) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
   return (
     <div className="movie-section">
