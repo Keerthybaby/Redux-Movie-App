@@ -6,14 +6,18 @@ import {APIKey}  from '../../common/apis/MovieApiKey';
 
 export const fetchAsyncMovies=createAsyncThunk('movies/fetchAsyncMovies', async()=>{
   const movieText="Harry";
-    
-      const response = await movieApi.get(`?apikey=${APIKey}&s=${movieText}&type=movie`);
-      
-     
-     return response.data;
+  const response = await movieApi.get(`?apikey=${APIKey}&s=${movieText}&type=movie`);
+  return response.data;
+});
+
+export const fetchAsyncShows=createAsyncThunk('movies/fetchAsyncShows', async()=>{
+  const seriesText="Friends";
+  const response = await movieApi.get(`?apikey=${APIKey}&s=${seriesText}&type=series`);
+  return response.data;
 });
 const initialState={
   movies: {},
+  shows:{},
 };
 
 const movieSlice=createSlice({
@@ -35,6 +39,10 @@ const movieSlice=createSlice({
       })
       .addCase(fetchAsyncMovies.rejected,(state)=>{
         console.log("Rejected!");
+      })
+      .addCase(fetchAsyncShows.fulfilled,(state,{payload})=>{
+        console.log("Fetched Successfully");
+        state.shows=payload;
       });
   },
 });
@@ -43,4 +51,5 @@ const movieSlice=createSlice({
 export const {addMovies} =movieSlice.actions;
 export const getAllMovies=(state)=> state.movies.movies;
 export default movieSlice.reducer;
+
 
