@@ -3,7 +3,8 @@ import movieApi from "../../common/apis/MovieApi";
 import {APIKey}  from '../../common/apis/MovieApiKey';
 
 
-const fetchAsyncMovies=createAsyncThunk('movies/fetchAsyncMovies', async()=>{
+
+export const fetchAsyncMovies=createAsyncThunk('movies/fetchAsyncMovies', async()=>{
   const movieText="Harry";
     
       const response = await movieApi.get(`?apikey=${APIKey}&s=${movieText}&type=movie`);
@@ -23,7 +24,21 @@ const movieSlice=createSlice({
       state.movies=payload;
     },
   },
+  extraReducers:(builder)=>{
+    builder
+      .addCase(fetchAsyncMovies.pending,(state)=>{
+        console.log("Pending");
+      })
+      .addCase(fetchAsyncMovies.fulfilled,(state,{payload})=>{
+        console.log("Fetched Successfully");
+        state.movies=payload;
+      })
+      .addCase(fetchAsyncMovies.rejected,(state)=>{
+        console.log("Rejected!");
+      });
+  },
 });
+
 
 export const {addMovies} =movieSlice.actions;
 export const getAllMovies=(state)=> state.movies.movies;

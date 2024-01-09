@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import MovieListing from "../MovieListing/MovieListing"
 
 import {useDispatch} from "react-redux";
-import {addMovies} from "../../features/movies/movieSlice"
+import {fetchAsyncMovies} from "../../features/movies/movieSlice";
 
 
 const Home = () => {
@@ -10,11 +10,11 @@ const Home = () => {
   const movieText="Harry";
   const dispatch=useDispatch();
   useEffect(()=>{
-    const fetchMovies=async()=>{};
-      
+    
+    dispatch(fetchAsyncMovies());
   
-    fetchMovies();
-  },[]);
+    
+  },[dispatch]);
   return (
     <div>
      <div className="banner-img"></div>
