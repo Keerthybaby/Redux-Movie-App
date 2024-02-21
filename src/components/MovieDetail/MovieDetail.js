@@ -20,9 +20,9 @@ const MovieDetail = () => {
     };
   }, [dispatch, imdbID]);
 
-  // if (!data) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="movie-section">
       {Object.keys(data).length===0 ? (
