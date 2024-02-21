@@ -1,4 +1,4 @@
-#Movie Reviews App built using React Redux Toolkit 🎬🍿
+# Movie Reviews App built using React Redux Toolkit 🎬🍿
 
 ---
 
