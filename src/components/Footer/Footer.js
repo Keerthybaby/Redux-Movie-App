@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         Movie App
       </div>
-      <div>&copy; Movie,Inc. or its affiliates
+      <div>&copy;Keerthy Baby
 </div>
     </div>)
   );
