@@ -11,6 +11,8 @@ Movie App is a web application using Redux React Toolkit, where a user can view 
 - View a list of movies
 - View details of each movie
 - Search for movies by title
+- Integration with the Open Movie Database (OMDb) API for fetching movie data.
+- Responsive user interface design optimized for various screen sizes and devices
 
 ### Technologies Used🛠️
 
@@ -19,6 +21,7 @@ Movie App is a web application using Redux React Toolkit, where a user can view 
 - Redux Thunk
 - Axios
 - Bootstrap
+- OMDB API 
 
 ### Installation🚀
 
